@@ -1,36 +1,55 @@
-@extends('layouts.app')
+@include('partials.header')
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading">Products</div>
+@include('partials.sidebar')
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        New Product
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Create</a></li>
+        <li class="active">Products</li>
+      </ol>
+    </section>
 
-                <div class="panel-body">
-                    {!! Form::open(array('route'=>'product.store')) !!}
-                        <div class="form-group">
-                            {!! Form::label('description','Description') !!}
-                            {!! Form::text('description',null,['class'=>'form-control'])!!}
-                        </div>
-                        <div class="form-group">
-                            {!! Form::label('price','Price') !!}
-                            {!! Form::text('price',null,['class'=>'form-control'])!!}
-                        </div>
-                        <div class="form-group">
-                            {!! Form::button('Create',['type'=>'submit','class'=>'btn btn-primary'])!!}
-                        </div>
-                    {!! Form::close() !!}
-                </div>
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <!-- left column -->
+        <div class="col-md-6">
+          <!-- general form elements -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Quick Example</h3>
             </div>
-            @if($errors->has())
-                <ul class="alert alert-danger">
-                    @foreach($errors->all() as $error)
-                        <li>{{$error}}</li>
-                    @endforeach
-                </ul>
-            @endif
+            <!-- /.box-header -->
+            <!-- form start -->
+             {!! Form::open(array('route'=>'product.store')) !!}
+              <div class="box-body">
+                <div class="form-group">
+                  {!! Form::label('description','Description') !!}
+                  {!! Form::text('description',null,['class'=>'form-control']) !!}
+                </div>
+                <div class="form-group">
+                  {!! Form::label('price','Price') !!}
+                  {!! Form::text('price',null,['class'=>'form-control']) !!}
+                </div>
+              </div>
+              <!-- /.box-body -->
+              <div class="box-footer">
+                {!! Form::button('Create',['type'=>'submit','class'=>'btn btn-primary']) !!}
+              </div>
+              {!! Form::close() !!}
+          </div>
+          <!-- /.box -->
         </div>
-    </div>
-</div>
-@endsection
+        <!--/.col (left) -->
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+  </div>
+    @include('partials.footer')

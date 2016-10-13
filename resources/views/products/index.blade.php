@@ -1,42 +1,60 @@
-@extends('layouts.app')
+@include('partials.header')
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
+@include('partials.sidebar')
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>Products</h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Tables</a></li>
+        <li class="active">Products</li>
+      </ol>
+    </section>
 
-            @if(Session::has('message'))
-                <div class="alert alert-success">
-                    {{Session::get('message')}}
-                </div>
-            @endif
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
 
-            <div class="panel panel-default">
-                <div class="panel-heading">Products</div>
-
-                <div class="panel-body">
-                    <table class="table">
-                        <tr>
-                            <th>Description</th>
-                            <th>Price</th>
-                        </tr>
-                            @foreach($products as $product)
-                                <tr>
-                                    <td>{{ link_to_route('product.show',$product->description,[$product->id]) }}</td>
-                                    <td>
-                                    {!! Form::open(array('route'=>['product.destroy',$product->id],'method'=>'DELETE')) !!}
-                                        {{ link_to_route('product.edit','Edit',[$product->id],['class'=>'btn btn-primary']) }} 
-                                        | 
-                                        {!! Form::button('Delete',['class'=>'btn btn-danger','type'=>'submit']) !!}                                        
-                                    {!! Form::close() !!}
-                                    </td>
-                                </tr>
-                            @endforeach
-                    </table>
-                </div>
+          <div class="box">
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>Description</th>
+                  <th>Price</th>
+                  <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($products as $product)
+                <tr>
+                  <td> {{ link_to_route('product.show',$product->description,[$product->id]) }} </td>
+                  <td> {{ $product->price }} </td>
+                  <td>
+                  {!! Form::open(array('route'=>['product.destroy',$product->id],'method'=>'DELETE')) !!}
+                    {{ link_to_route('product.edit','Edit',[$product->id],['class'=>'btn btn-primary']) }} 
+                    {!! Form::button('Delete',['class'=>'btn btn-danger','type'=>'submit']) !!}
+                  {!! Form::close() !!} 
+                  </td>
+                </tr>
+                @endforeach
+                </tbody>
+              </table>
             </div>
-            {{ link_to_route('product.create','Add new Product',null,['class'=>'btn btn-primary']) }}
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
         </div>
-    </div>
-</div>
-@endsection
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  
+  @include('partials.footer')
