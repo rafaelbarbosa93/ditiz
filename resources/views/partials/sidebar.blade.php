@@ -15,8 +15,22 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">Menu</li>
-        <li>{{  link_to_route('product.index','Show Products',null) }}</li>
-        <li>{{  link_to_route('product.create','New Product',null) }}</li>
+          <li class="active treeview">
+            <a href="{{route('product.index')}}">
+              <i class="fa fa-list"></i> <span>Show Products</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+          </li>
+          <li class="active treeview">
+            <a href="{{route('product.create')}}">
+              <i class="fa fa-file-o"></i> <span>New Product</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+        </li>
       </ul>
     </section>
     <!-- /.sidebar -->
