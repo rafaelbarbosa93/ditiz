@@ -22,9 +22,6 @@
         <div class="col-md-6">
           <!-- general form elements -->
           <div class="box box-primary">
-            <div class="box-header with-border">
-              <h3 class="box-title">Quick Example</h3>
-            </div>
             <!-- /.box-header -->
             <!-- form start -->
              {!! Form::open(array('route'=>'product.store')) !!}
@@ -35,7 +32,7 @@
                 </div>
                 <div class="form-group">
                   {!! Form::label('price','Price') !!}
-                  {!! Form::text('price',null,['class'=>'form-control']) !!}
+                  {!! Form::number('price',null,['class'=>'form-control','step'=>'any']) !!}
                 </div>
               </div>
               <!-- /.box-body -->

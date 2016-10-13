@@ -32,7 +32,7 @@
                 </div>
                 <div class="form-group">
                   {!! Form::label('price','Price') !!}
-                  {!! Form::text('price',null,['class'=>'form-control']) !!}
+                  {!! Form::number('price',null,['class'=>'form-control','step'=>'any']) !!}
                 </div>
               </div>
               <!-- /.box-body -->

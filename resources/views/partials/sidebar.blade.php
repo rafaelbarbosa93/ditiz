@@ -8,15 +8,15 @@
           <img src="{{ asset('AdminLTE-2.3.6/dist/img/avatar5.png') }}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>{{ Auth::user()->name }}</p>
+          <p>{{ Auth::user()['name'] }}</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
-        <li class="header">MAIN NAVIGATION</li>
+        <li class="header">Menu</li>
         <li>{{  link_to_route('product.index','Show Products',null) }}</li>
-        <li>{{  link_to_route('product.create','Register',null) }}</li>
+        <li>{{  link_to_route('product.create','New Product',null) }}</li>
       </ul>
     </section>
     <!-- /.sidebar -->
