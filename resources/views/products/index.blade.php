@@ -32,7 +32,7 @@
                 <tbody>
                 @foreach($products as $product)
                 <tr>
-                  <td> {{ link_to_route('product.show',$product->description,[$product->id]) }} </td>
+                  <td> {{ $product->description }} </td>
                   <td> {{ $product->price }} </td>
                   <td>
                   {!! Form::open(array('route'=>['product.destroy',$product->id],'method'=>'DELETE')) !!}
