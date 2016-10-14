@@ -27,6 +27,10 @@
             {!! Form::model($product,array('route'=>['product.update',$product->id],'method'=>'PUT')) !!}
               <div class="box-body">
                 <div class="form-group">
+                  {!! Form::label('code','Code') !!}
+                  {!! Form::number('code',null,['class'=>'form-control']) !!}
+                </div>
+                <div class="form-group">
                   {!! Form::label('description','Description') !!}
                   {!! Form::text('description',null,['class'=>'form-control']) !!}
                 </div>
